@@ -126,26 +126,24 @@ function createBookElement(livre) {
 
     const prixGrandFormatElement = document.createElement('button');
     prixGrandFormatElement.className = 'livre__price--standard';
-    prixGrandFormatElement.textContent = `Prix livre grand format: ${livre["Prix"]}`;
+    prixGrandFormatElement.textContent = `Prix livre grand format: ${livre.Prix}`;
 
     const prixGrandFormatElementA = document.createElement('a');
     prixGrandFormatElementA.className = "livre__price--standard--a";
     prixGrandFormatElementA.href = livre.lienPrix;
     prixGrandFormatElementA.target = '_blank'
-
     prixGrandFormatElementA.append(prixGrandFormatElement)
     livreElement.append(prixGrandFormatElementA);
 
     const prixFormatPocheElement = document.createElement('button');
     prixFormatPocheElement.className = 'livre__price--poche';
-    prixFormatPocheElement.textContent = `Prix livre de poche: ${livre["PrixPoche"]}`;
+    prixFormatPocheElement.textContent = `Prix livre de poche: ${livre.PrixPoche}`;
 
     const prixFormatPocheElementA = document.createElement('a');
     prixFormatPocheElementA.className = "livre__price--poche--a";
     prixFormatPocheElementA.href = livre.lienPrixPoche;
     prixFormatPocheElementA.target = '_blank'
     prixFormatPocheElementA.append(prixFormatPocheElement);
-
     livreElement.append(prixFormatPocheElementA);
 
     return livreElement;
