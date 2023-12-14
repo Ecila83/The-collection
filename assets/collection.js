@@ -69,7 +69,7 @@ const collectionLivres = [
         PrixPoche: "16 €",
         Titre: "Anna Karénine",
         Auteur: "Léon Tolstoï",
-        Synopsis: "Un récit sur l'amour, le mariage et la société russe du 19ème siècle, mettant en lumière la tragédie d'Anna Karénine.",
+        Synopsis: "Les familles heureuses se ressemblent toutes ; les familles malheureuses sont malheureuses chacune à leur façon. Ainsi s'ouvre ce grand roman du couple, de la passion amoureuse et de la tentation. ",
     },
     {
         Img: "assets/img/harry potter.jpg",
@@ -82,37 +82,37 @@ const collectionLivres = [
 ];
 function createBookElement(livre) {
     const livreElement = document.createElement('div');
-    livreElement.className ='livre';
+    livreElement.className = 'livre';
 
     const imageElement = document.createElement('img');
     imageElement.src = livre.Img;
-    livreElement.className = 'livre__image';
-    livreElement.appendChild(imageElement);
-    
-    const prixGrandFormatElement = document.createElement('p');
-    prixGrandFormatElement.textContent = `Prix livre grand format: ${livre["Prix"]}`;
-    livreElement.className = 'livre__price--standard';
-    livreElement.appendChild(prixGrandFormatElement);
-
-    const prixFormatPocheElement = document.createElement('p');
-    prixFormatPocheElement.textContent = `Prix livre de poche: ${livre["PrixPoche"]}`;
-    livreElement.className = 'livre__price--poche';
-    livreElement.appendChild(prixFormatPocheElement);
+    imageElement.className = 'livre__image';
+    livreElement.append(imageElement);
 
     const titreElement = document.createElement('h2');
     titreElement.textContent = livre.Titre;
-    livreElement.className = 'livre__title';
-    livreElement.appendChild(titreElement);
+    titreElement.className = 'livre__title';
+    livreElement.append(titreElement);
 
     const auteurElement = document.createElement('h3');
     auteurElement.textContent = `Auteur: ${livre.Auteur}`;
-    livreElement.className = 'livre__author';
-    livreElement.appendChild(auteurElement);
+    auteurElement.className = 'livre__author';
+    livreElement.append(auteurElement);
 
     const synopsisElement = document.createElement('p');
     synopsisElement.textContent = `Synopsis: ${livre.Synopsis}`;
-    livreElement.className = 'livre__Synopsis';
-    livreElement.appendChild(synopsisElement);
+    synopsisElement.className = 'livre__Synopsis';
+    livreElement.append(synopsisElement);
+
+    const prixGrandFormatElement = document.createElement('button');
+    prixGrandFormatElement.textContent = `Prix livre grand format: ${livre["Prix"]}`;
+    prixGrandFormatElement.className = 'livre__price--standard';
+    livreElement.append(prixGrandFormatElement);
+
+    const prixFormatPocheElement = document.createElement('button');
+    prixFormatPocheElement.textContent = `Prix livre de poche: ${livre["PrixPoche"]}`;
+    prixFormatPocheElement.className = 'livre__price--poche';
+    livreElement.append(prixFormatPocheElement);
 
     return livreElement;
 }
@@ -121,5 +121,5 @@ const collection = document.querySelector('.collection');
 
 collectionLivres.forEach(livre => {
     const livreElement = createBookElement(livre);
-    collection.appendChild(livreElement);
+    collection.append(livreElement);
 });
